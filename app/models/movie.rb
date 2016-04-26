@@ -13,13 +13,18 @@ class Movie < ActiveRecord::Base
   validates :description,
     presence: true
 
-  validates :poster_image_url,
-    presence: true
-
   validates :release_date,
     presence: true
 
   validate :release_date_is_in_the_past
+
+  validate :movie_image
+
+  mount_uploader :image, ImageUploader
+
+  def movie_image
+    poster_image_url.present? || image.present?
+  end
 
   def review_average
     if reviews.size > 0
