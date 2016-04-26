@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.new(movie_params[:id])
+    @movie = Movie.find(params[:id])
   end
 
   def create
