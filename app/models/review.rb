@@ -3,7 +3,8 @@ class Review < ActiveRecord::Base
   belongs_to :movie
 
   validates :user,
-    presence: true
+    presence: true,
+    uniqueness: {scope: :movie, message: "can only leave one review per movie"}
 
   validates :movie,
     presence: true
