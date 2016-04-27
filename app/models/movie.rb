@@ -32,6 +32,14 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  #   else
+  #     find(:all)
+  #   end
+  # end
+
   protected
 
   def release_date_is_in_the_past

@@ -1,6 +1,20 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    if params[:duration_search]
+          min_value = params[:duration_search].split('-')[0]
+          max_value = params[:duration_search].split('-')[1]
+    end
+
+    if max_value == nil
+          max_value = Movie.maximum("runtime_in_minutes")+1
+    end
+
+    if params[:title] || params[:director] || params[:duration_search]
+      @movies = Movie.where("title LIKE ?", "%#{params[:title]}%").where("director LIKE ?", "%#{params[:director]}%")
+      .where("runtime_in_minutes >= ? AND runtime_in_minutes < ?", min_value, max_value)
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
@@ -25,7 +39,6 @@ class MoviesController < ApplicationController
     end
   end 
 
-  
   def update
     @movie = Movie.find(params[:id])
 
@@ -35,6 +48,11 @@ class MoviesController < ApplicationController
       render :edit
     end
   end
+
+  # def search
+  #   @search_results = Movie.where("title LIKE ?", "%#{params[:q]}%")
+  #   redirect_to movies_search_path
+  # end
 
   def destroy
     @movie = Movie.find(params[:id])
