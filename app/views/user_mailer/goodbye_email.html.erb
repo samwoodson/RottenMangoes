@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Yep you got deleted, <%= @user.full_name %></h1>
+    <p>
+      Your account was successfully deleted from RottenMangoes,
+      your login was: <%= @user.email %>.<br>
+    </p>
+    <p>
+      If you want to join again, visit: <%= @url %>.
+    </p>
+    <p>We hope you join again, have a great day!</p>
+  </body>
+</html>
