@@ -7,11 +7,6 @@
   <%= submit_tag "Search", name: nil %>
 <% end %>
 <hr>
-<% @movies.each do |movie| %>
-  <%= if movie.image? ; image_tag movie.image.thumb else link_to image_tag(movie.poster_image_url), movie_path(movie) end %>
-  <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
+<% @movies.each do |movie|  %>
+    <%= render partial: 'movie', locals: {movie: movie} %>
 <% end %>
