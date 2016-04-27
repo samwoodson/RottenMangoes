@@ -1,0 +1,12 @@
+<table border="1">
+  <th>Users Full Name</th>
+  <th>Users Email</th>
+  <th>Delete</th>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.full_name%></td>
+      <td><%= user.email %></td>
+      <td><%= link_to "delete", admin_user_path(user), method: :delete, confirm: "Delete user #{user.full_name}?" %></td>
+    </tr>
+  <% end %>
+</table>
