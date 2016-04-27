@@ -1,11 +1,6 @@
 <h1><a href="/movies">Rotten Mangoes</a></h1>
 <%= link_to "Submit a movie!", new_movie_path %>
-<%= form_tag movies_path, method: "get" do %>
-  <%= text_field_tag :title, params[:title], placeholder: "Search Movie Title:" %>
-  <%= text_field_tag :director, params[:director], placeholder: "Search Director:" %>
-  <%= select_tag(:duration, options_for_select([['Any duration', '0-1000'],['Under 90 mins', '0-90'],['90-120 mins', '90-120'],['Over 120 minutes', '120-1000']])) %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
+  <%= render 'search' %>
 <hr>
 <% @movies.each do |movie|  %>
     <%= render partial: 'movie', locals: {movie: movie} %>
