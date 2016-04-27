@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  paginates_per 5
+
   validates :email,
     presence: true
 

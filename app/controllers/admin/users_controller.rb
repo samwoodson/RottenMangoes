@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :restrict_admin_access
 
   def index 
-    @users = User.all
+    @users = User.all.page params[:page]
   end
 
   def destroy
