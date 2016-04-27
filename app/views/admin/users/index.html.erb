@@ -9,8 +9,8 @@
       <td><%= user.full_name%></td>
       <td><%= user.email %></td>
       <td><%= user.admin %></td>
-      <td><%= link_to "edit", edit_admin_user_path(user) %><td>
-      <td><%= link_to "delete", admin_user_path(user), method: :delete, confirm: "Delete user #{user.full_name}?" %></td>
+      <td><%= link_to "edit", edit_admin_user_path(user)%></td>
+      <td><%= link_to "delete", admin_user_path(user), method: :delete, data: {confirm: "are you sure?"}%></td>
     </tr>
   <% end %>
 </table>
