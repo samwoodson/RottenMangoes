@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def restrict_admin_access
+    if !current_user.admin
+      flash[:alert] = "Admin access only"
+      redirect_to :movies
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

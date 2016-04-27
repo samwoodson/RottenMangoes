@@ -9,7 +9,7 @@ RottenMangoes::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
