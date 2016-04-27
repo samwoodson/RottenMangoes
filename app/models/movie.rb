@@ -1,6 +1,10 @@
 class Movie < ActiveRecord::Base
   has_many :reviews
 
+  scope :title_search, -> (title) {where("title like ?", "%#{title}%")}
+  scope :director_search, -> (director) {where("director LIKE ?", "%#{director}%")}
+  scope :duration_search, -> (min, max) {where("runtime_in_minutes >= ? AND runtime_in_minutes < ?", min, max)}
+
  validates :title,
     presence: true
 
