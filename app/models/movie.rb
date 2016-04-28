@@ -4,6 +4,8 @@ class Movie < ActiveRecord::Base
   scope :title_search, -> (search) {where("title like ? OR director LIKE ?", "%#{search}%", "%#{search}%")}
   scope :duration_search, -> (min, max) {where("runtime_in_minutes >= ? AND runtime_in_minutes < ?", min, max)}
 
+  paginates_per 25
+
  validates :title,
     presence: true
 

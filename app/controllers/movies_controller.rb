@@ -2,9 +2,11 @@ class MoviesController < ApplicationController
   def index
     if params[:movie]
       min_value, max_value = params[:movie][:duration].split('-')
-      @movies = Movie.title_search(params[:movie][:search]).duration_search(min_value, max_value)
+      @movies = Movie.title_search(params[:movie][:search])
+      .duration_search(min_value, max_value)
+      .page(params[:page])
     else
-      @movies = Movie.all
+      @movies = Movie.all.page(params[:page])
     end
   end
 

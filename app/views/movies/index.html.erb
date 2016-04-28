@@ -2,6 +2,11 @@
 <%= link_to "Submit a movie!", new_movie_path %>
   <%= render 'search' %>
 <hr>
-<% @movies.each do |movie|  %>
+<div id="wrapper">
+  <div id="columns">
+  <% @movies.each do |movie|  %>
     <%= render partial: 'movie', locals: {movie: movie} %>
-<% end %>
+  <% end %>
+  <%= paginate @movies %>
+  </div>
+</div>
