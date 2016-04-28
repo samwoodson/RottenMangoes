@@ -1,5 +1,11 @@
 class MoviesController < ApplicationController
-  autocomplete :movie, :title
+  autocomplete :movie, :title, :extra_data => [:director], full: true
+
+  # def autocomplete_product_name
+  #   movies = Movie.title_search(params[:movie][:title])
+  #   render :json => movies.map { |movie| {:title => movie.title, :director => movie.director} }
+  # end
+
   def index
     if params[:movie]
       min_value, max_value = params[:movie][:duration].split('-')
@@ -7,7 +13,7 @@ class MoviesController < ApplicationController
       .duration_search(min_value, max_value)
       .page(params[:page])
     else
-      @movies = Movie.all.page(params[:page])
+      @movies = Movie.all.order("random()").page(params[:page])
     end
   end
 

@@ -3,7 +3,7 @@
   <%= fields_for :movie do |f| %>
     
 <!-- <%= f.label :title %><br /> -->
-      <%= f.text_field :title, value: (params[:movie][:title] if params[:movie]), class: "search-query", placeholder: "Movie Title or Director:", type: "search", data: {autocomplete: autocomplete_movie_title_movies_path} %>
+      <%= f.text_field :title, value: (params[:movie][:title] if params[:movie]), class: "search-query", placeholder: "Movie Title or Director:", type: "search", data: {autocomplete: autocomplete_movie_title_movies_path}, 'data-auto-focus' => true %>
      
     <div>
     <%= f.select :duration, options_for_select(

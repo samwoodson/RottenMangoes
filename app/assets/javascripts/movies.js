@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$( document ).ready(function() {
-  $('.search-query').bind('railsAutocomplete.select', function(event, data {
-  $('.search-me').trigger('click')
-  });
-});
+// $( document ).ready(function() {
+//   $('.search-query').bind('railsAutocomplete.select', function(event, data {
+//   $('.search-me').trigger('click')
+//   });
+// });
