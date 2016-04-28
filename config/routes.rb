@@ -4,6 +4,7 @@ RottenMangoes::Application.routes.draw do
   get "reviews/create"
   resources :movies do
     resources :reviews, only: [:new, :create]
+    get :autocomplete_movie_title, :on => :collection
   end
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
@@ -12,6 +13,9 @@ RottenMangoes::Application.routes.draw do
     resources :users
   end
 
+  # resources :movies do
+  #   get :autocomplete_movie_title, :on => :collection
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

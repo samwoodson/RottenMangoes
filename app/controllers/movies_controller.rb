@@ -1,8 +1,9 @@
 class MoviesController < ApplicationController
+  autocomplete :movie, :title
   def index
     if params[:movie]
       min_value, max_value = params[:movie][:duration].split('-')
-      @movies = Movie.title_search(params[:movie][:search])
+      @movies = Movie.title_search(params[:movie][:title])
       .duration_search(min_value, max_value)
       .page(params[:page])
     else
