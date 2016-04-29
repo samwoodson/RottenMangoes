@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -31,6 +32,10 @@ gem 'faker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-infinite-pages'
+gem 'rails-jquery-autocomplete'
+gem 'kaminari'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

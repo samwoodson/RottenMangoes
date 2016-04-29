@@ -1,8 +1,10 @@
-<%= form_tag movies_path, method: "get" do %>
+
+<%= form_tag(movies_path, method: "get", id: "search-form")  do %>
   <%= fields_for :movie do |f| %>
-    <div>
-      <%= f.text_field :search, value: (params[:movie][:search] if params[:movie]), placeholder: "Search Movie Title or Director:" %>
-    </div>
+    
+<!-- <%= f.label :title %><br /> -->
+      <%= f.text_field :title, value: (params[:movie][:title] if params[:movie]), class: "search-query", placeholder: "Movie Title or Director:", type: "search", data: {autocomplete: autocomplete_movie_title_movies_path}, 'data-auto-focus' => true %>
+     
     <div>
     <%= f.select :duration, options_for_select(
       [
@@ -18,3 +20,10 @@
     <%= submit_tag "Search", name: nil %>
   </div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+//   $('#food_name').bind('railsAutocomplete.select', function(event, data){
+//     /* Do something here */
+//     alert("woot");
+//   });
+// </script>

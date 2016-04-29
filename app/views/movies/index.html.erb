@@ -3,10 +3,18 @@
   <%= render 'search' %>
 <hr>
 <div id="wrapper">
-  <div id="columns">
+  <!-- <div id="columns">
   <% @movies.each do |movie|  %>
     <%= render partial: 'movie', locals: {movie: movie} %>
   <% end %>
-  <%= paginate @movies %>
+  <%= paginate @movies %> -->
+  <div id="columns" class="infinite-table">
+     <table>
+       <%= render @movies %>
+     </table>
+     <p class="pagination">
+       <%= link_to_next_page(@movies, 'Next Page', remote: true) %>
+     </p>
+
   </div>
 </div>
