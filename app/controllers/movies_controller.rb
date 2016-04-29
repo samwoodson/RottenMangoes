@@ -1,9 +1,11 @@
 class MoviesController < ApplicationController
   autocomplete :movie, :title, :extra_data => [:director], full: true
 
-  # def autocomplete_product_name
-  #   movies = Movie.title_search(params[:movie][:title])
-  #   render :json => movies.map { |movie| {:title => movie.title, :director => movie.director} }
+  # def autocomplete_movie_title
+  #   if params[:movie]
+  #     movies = Movie.title_search(params[:movie][:title])
+  #     render :json => movies.map { |movie| {:title => movie.title, :director => movie.director} }
+  #   end
   # end
 
   def index
