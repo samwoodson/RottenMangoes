@@ -1,5 +1,9 @@
 Rails 4.2.6
+
 Using IMDB gem for seeding movie info into a SQLite3 database for development, Postgres for deployment on Heroku 
+
 jQuery infinite pages gem for infinite scroll
+
 jQuery-ui for autocomplete search field
+
 MiniMagick gem for user uploaded photos
